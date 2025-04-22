@@ -1,22 +1,22 @@
 {
-  "id": "b42fa530-c4a6-11ed-87f6-d1f44a1fead1",
-  "name": "GPTPullRequestReview",
+  "id": "a8d90138-9f4f-4ad1-a82e-d846bb65fd4f",
+  "name": "gpt-pr-review-jp",
   "friendlyName": "Review PullRequest by GPT",
   "description": "This task use OpenAi GPT model to review PullRequests",
   "author": "Mustapha Larhrouch",
-  "helpMarkDown": "[More Information](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review)",
+  "helpMarkDown": "[More Information](https://github.com/kohta-jrits/azure-pipeline-gpt-pr-review-jp)",
   "category": "Utility",
   "visibility": [
     "Build"
   ],
   "demands": [],
   "version": {
-    "Major": "0",
-    "Minor": "12",
-    "Patch": "3"
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "GPTPullRequestReview $(message)",
+  "instanceNameFormat": "gpt-pr-review-jp $(message)",
   "inputs": [
     {
       "name": "api_key",

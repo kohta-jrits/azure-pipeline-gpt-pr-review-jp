@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "GPTPullRequestReview",
-    "name": "GPT Pull Request Review",
-    "version": "0.12.3",
-    "publisher": "mustaphalarhrouch",
+    "id": "gpt-pr-review-jp",
+    "name": "GPT Pull Request Review JP",
+    "version": "1.0.0",
+    "publisher": "kohta-jrits",
     "galleryFlags": [
         "Public",
         "Preview"
@@ -13,7 +13,7 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "A task that review Pull Request using GPT model from OpenAI",
+    "description": "日本語でPull Requestの変更内容をGPTでレビューするAzure Pipelinesタスク",
     "categories": [
         "Azure Pipelines"
     ],
@@ -33,7 +33,7 @@
     ],
     "repository" : {
         "type" : "git",
-        "uri" : "https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review"
+        "uri" : "https://github.com/kohta-jrits/azure-pipeline-gpt-pr-review-jp"
     },
     "content": {
         "details": {
@@ -42,7 +42,7 @@
     },
     "contributions": [
         {
-            "id": "GPTPullRequestReview",
+            "id": "GPTPullRequestReviewJP",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
