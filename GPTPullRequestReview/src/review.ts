@@ -18,7 +18,9 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
         As a code reviewer, your task is:
                 - Review only added, edited or deleted lines.
                 - If there's no bugs and the changes are correct, write only 'No feedback.'
-                - If there's bug or uncorrect code changes, don't write 'No feedback.'`;
+                - If there's bug or uncorrect code changes, don't write 'No feedback.'
+
+        Please respond in Japanese.`;
 
   try {
     let choices: any;
