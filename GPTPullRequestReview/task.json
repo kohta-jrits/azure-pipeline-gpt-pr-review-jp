@@ -3,7 +3,7 @@
   "name": "gpt-pr-review-jp",
   "friendlyName": "Review PullRequest by GPT",
   "description": "This task use OpenAi GPT model to review PullRequests",
-  "author": "Mustapha Larhrouch",
+  "author": "kohta-jrits",
   "helpMarkDown": "[More Information](https://github.com/kohta-jrits/azure-pipeline-gpt-pr-review-jp)",
   "category": "Utility",
   "visibility": [
@@ -13,7 +13,7 @@
   "version": {
     "Major": "1",
     "Minor": "0",
-    "Patch": "0"
+    "Patch": "2"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "gpt-pr-review-jp $(message)",
@@ -57,7 +57,7 @@
     }
   ],
   "execution": {
-    "Node10": {
+    "Node16": {
       "target": "dist/index.js"
     }
   }

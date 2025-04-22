@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "gpt-pr-review-jp",
     "name": "GPT Pull Request Review JP",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "publisher": "kohta-jrits",
     "galleryFlags": [
         "Public",
@@ -12,13 +12,13 @@
         {
             "id": "Microsoft.VisualStudio.Services"
         }
-    ],    
+    ],
     "description": "日本語でPull Requestの変更内容をGPTでレビューするAzure Pipelinesタスク",
     "categories": [
         "Azure Pipelines"
     ],
     "icons": {
-        "default": "images/icon.png"        
+        "default": "images/icon.png"
     },
     "tags": [
         "OpenAI",
@@ -31,9 +31,9 @@
             "path": "GPTPullRequestReview"
         }
     ],
-    "repository" : {
-        "type" : "git",
-        "uri" : "https://github.com/kohta-jrits/azure-pipeline-gpt-pr-review-jp"
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/kohta-jrits/azure-pipeline-gpt-pr-review-jp"
     },
     "content": {
         "details": {
