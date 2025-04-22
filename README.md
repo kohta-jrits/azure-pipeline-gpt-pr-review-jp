@@ -1,5 +1,7 @@
 # Use OpenAI GPT model to review Pull Requests for Azure Devops
 A task for Azure DevOps build pipelines to add GPT as PR reviewer
+I forked from https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review
+to make the review results returned in Japanese.
 
 ## Installation
 
