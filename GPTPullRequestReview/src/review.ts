@@ -64,11 +64,17 @@ If there are no required fixes, still include an empty '### 🛠 Required Fixes'
         method: 'POST',
         headers: { 'api-key': `${apiKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          max_tokens: 500,
-          messages: [{
-            role: "user",
-            content: `${instructions}\n, patch : ${patch}}`
-          }]
+          max_tokens: 800,
+          messages: [
+            {
+              role: "developer",
+              content: instructions,
+            },
+            {
+              role: "user",
+              content: patch,
+            }
+          ]
         })
       });
 
