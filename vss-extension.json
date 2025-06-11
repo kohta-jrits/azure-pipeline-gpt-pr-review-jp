@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "gpt-pr-review-jp",
     "name": "GPT Pull Request Review JP",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "publisher": "kohta-jrits",
     "galleryFlags": [
         "Public",

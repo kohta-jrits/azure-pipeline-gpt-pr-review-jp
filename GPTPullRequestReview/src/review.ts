@@ -12,26 +12,31 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
   const patch = await git.diff([targetBranch, '--', fileName]);
 
   const instructions = `Act as a code reviewer of a Pull Request, providing feedback on possible bugs and clean code issues.
-        You are provided with the Pull Request changes in a patch format.
-        Each patch entry has the commit message in the Subject line followed by the code changes (diffs) in a unidiff format.
+You are provided with the Pull Request changes in a patch format.
+Each patch entry has the commit message in the Subject line followed by the code changes (diffs) in a unidiff format.
 
-        Your task:
-        - Review only added, edited, or deleted lines.
-        - If the changes are correct and there are no issues, write only: 'No feedback.'
-        - Do not write 'No feedback.' if any problems are found.
+Your task:
+- Review only added, edited, or deleted lines.
+- If the changes are correct and there are no issues, respond with exactly: 'No feedback.'
+- Do not write 'No feedback.' if any problems are found.
 
-        Please respond in Japanese.
+Please respond in Japanese.
 
-        Format your response using the following structure:
+⚠️ Respond **strictly** using the following format:
 
-        ### 🛠 Required Fixes
-        - Clearly list bugs or incorrect code changes.
-        - Provide specific fix suggestions with code examples when possible.
+---
 
-        ### 💡 Suggestions for Improvement
-        - Give optional advice to enhance readability, maintainability, or performance.
+### 🛠 Required Fixes
+- [Describe each issue as a bullet point]
+- [Give concrete examples for how to fix each issue, ideally with code]
 
-        Keep each bullet point short and clear.`;
+### 💡 Suggestions for Improvement
+- [Give optional improvements in bullet point format]
+
+---
+
+Do not include any explanation or summary outside the above sections.
+If there are no required fixes, still include an empty '### 🛠 Required Fixes' section.`;
 
   try {
     let choices: any;
