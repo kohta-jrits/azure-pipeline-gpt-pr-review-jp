@@ -42,6 +42,8 @@ If there are no required fixes, still include an empty '### 🛠 Required Fixes'
     let choices: any;
 
     if (openai) {
+      console.log(`Use OpenAI`);
+
       const response = await openai.createChatCompletion({
         model: tl.getInput('model') || defaultOpenAIModel,
         messages: [
@@ -60,6 +62,8 @@ If there are no required fixes, still include an empty '### 🛠 Required Fixes'
       choices = response.data.choices
     }
     else if (aoiEndpoint) {
+      console.log(`Use Azure OpenAI`);
+
       const request = await fetch(aoiEndpoint, {
         method: 'POST',
         headers: { 'api-key': `${apiKey}`, 'Content-Type': 'application/json' },
@@ -68,11 +72,16 @@ If there are no required fixes, still include an empty '### 🛠 Required Fixes'
           messages: [
             {
               role: "developer",
-              content: instructions,
+              content: [
+                { type: "text", text: instructions }
+              ]
             },
             {
               role: "user",
-              content: patch,
+              content: patch.split('\n').map(line => ({
+                type: "text",
+                text: line
+              }))
             }
           ]
         })
