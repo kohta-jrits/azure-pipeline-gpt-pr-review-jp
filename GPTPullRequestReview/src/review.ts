@@ -100,7 +100,7 @@ If there are no required fixes, still include an empty '### 🛠 Required Fixes'
       }
     }
 
-    console.log(`Review of ${fileName} completed.`);
+    console.log(`Review of ${fileName} completed!`);
   }
   catch (error: any) {
     if (error.response) {
