@@ -11,32 +11,32 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
   const defaultOpenAIModel = 'gpt-3.5-turbo';
   const patch = await git.diff([targetBranch, '--', fileName]);
 
-  const instructions = `Act as a code reviewer of a Pull Request, providing feedback on possible bugs and clean code issues.
-You are provided with the Pull Request changes in a patch format.
-Each patch entry has the commit message in the Subject line followed by the code changes (diffs) in a unidiff format.
+  const instructions = `あなたはコードレビュー担当者としてPull Requestの変更を確認し、バグやクリーンコード上の問題を日本語でレビューします。
+        以下の内容に厳密に従ってください：
 
-Your task:
-- Review only added, edited, or deleted lines.
-- If the changes are correct and there are no issues, respond with exactly: 'No feedback.'
-- Do not write 'No feedback.' if any problems are found.
+        ====================
+        ## 出力フォーマット（絶対に変更しないこと）
 
-Please respond in Japanese.
+        - **指摘が1つもない場合**は、"No feedback."（ダブルクォートなし）と**だけ**出力してください。
 
-⚠️ Respond **strictly** using the following format:
+        - **指摘がどちらか一方にある場合や両方にある場合**は、以下のフォーマットに厳密に従って出力してください。  
+          指摘がない項目については「（なし）」とだけ記載してください。
 
----
+        ### 🛠 Required Fixes
+        - [各問題点を簡潔に列挙してください]
+        - [修正案があればコード付きで提案してください]
+        （指摘がない場合は： （なし））
 
-### 🛠 Required Fixes
-- [Describe each issue as a bullet point]
-- [Give concrete examples for how to fix each issue, ideally with code]
+        ### 💡 Suggestions for Improvement
+        - [任意の改善案・リファクタ案を列挙してください]
+        （指摘がない場合は： （なし））
 
-### 💡 Suggestions for Improvement
-- [Give optional improvements in bullet point format]
+        ====================
 
----
-
-Do not include any explanation or summary outside the above sections.
-If there are no required fixes, still include an empty '### 🛠 Required Fixes' section.`;
+        - diff形式の変更内容が与えられます。
+        - 追加・編集・削除されたコード行のみをレビュー対象としてください。
+        - "No feedback." は**指摘が完全に存在しない場合にのみ**出力してください。
+        - 上記フォーマット以外の出力（説明や前後の文章）は絶対に書かないでください。`;
 
   try {
     let choices: any;
@@ -78,10 +78,7 @@ If there are no required fixes, still include an empty '### 🛠 Required Fixes'
             },
             {
               role: "user",
-              content: patch.split('\n').map(line => ({
-                type: "text",
-                text: line
-              }))
+              content: patch
             }
           ]
         })
